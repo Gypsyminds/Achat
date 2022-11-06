@@ -8,7 +8,7 @@ public interface IFournisseurService {
 
 	List<Fournisseur> retrieveAllFournisseurs();
 
-	Fournisseur addFournisseur(Fournisseur f);
+	int addFournisseur(Fournisseur f);
 
 	void deleteFournisseur(Long id);
 
