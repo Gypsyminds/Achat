@@ -15,6 +15,8 @@ import tn.esprit.rh.achat.repositories.FournisseurRepository;
 import tn.esprit.rh.achat.services.FournisseurServiceImpl;
 
 
+import java.util.ArrayList;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.verify;
 
@@ -29,22 +31,31 @@ public class FournisseurTest {
 
 
 
-    //private static final Logger l = LogManager.getLogger(AchatDevopsTest.class);
+    private static final Logger l = LogManager.getLogger(AchatDevopsTest.class);
 
     @Test
     public void testAjouterFournisseur() {
+        try {
+            l.info("In testAjouterEntreprise():");
+            Fournisseur f =new Fournisseur("testAjout", "testAjout");
+            ArrayList<Fournisseur> liste1 =(ArrayList<Fournisseur>) rep.findAll();
+            int size1=liste1.size();
+            l.info(()->"nombre d'entreprises avant l'ajout: " +size1);
+            l.info("Je vais ajouter une entreprise.");
+            int id=service.addFournisseur(f);
+            ArrayList <Fournisseur> liste2 =(ArrayList<Fournisseur>) rep.findAll();
+            int size2=liste2.size();
+            l.info(()->"nombre d'entreprises apres l'ajout: " +size2);
+            l.info("comparaison size avant et apres.");
 
-        //given
-        Fournisseur fournisseur = new Fournisseur("test","test");
-        //when
-        service.addFournisseur(fournisseur);
 
-        //then
-        ArgumentCaptor<Fournisseur> saArgumentCaptor = ArgumentCaptor.forClass(Fournisseur.class);
-        verify(rep).save(saArgumentCaptor.capture());
 
-        Fournisseur capturedsa = saArgumentCaptor.getValue();
-        assertThat(capturedsa).isEqualTo(fournisseur);
+            service.deleteFournisseur((long) id);
+            l.info("je supprime l'entreprise.");
+            l.info("Out testAjouterEntreprise() sans erreurs.");
+        }
+        catch (Exception e)
+        { l.error(()->"Erreur dans testAjouterEntreprise() : " + e); }
     }
 
 
