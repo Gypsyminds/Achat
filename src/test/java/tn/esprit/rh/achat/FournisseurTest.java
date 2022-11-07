@@ -37,23 +37,45 @@ public class FournisseurTest {
     private static final Logger l = LogManager.getLogger(AchatDevopsTest.class);
 
     @Test
-    public void testAjouterFournisseur()
-    {
+    public void testAjouterFournisseur() {
 
         //given
         Fournisseur fournisseur = new Fournisseur();
         //when
         service.addFournisseur(fournisseur);
-       ;
+        ;
         //then
-        ArgumentCaptor<Fournisseur> saArgumentCaptor = ArgumentCaptor.forClass(Fournisseur.class) ;
-        verify(rep).save(saArgumentCaptor.capture())  ;
+        ArgumentCaptor<Fournisseur> saArgumentCaptor = ArgumentCaptor.forClass(Fournisseur.class);
+        verify(rep).save(saArgumentCaptor.capture());
 
-        Fournisseur capturedsa= saArgumentCaptor.getValue();
-        assertThat(capturedsa).isEqualTo(fournisseur
+        Fournisseur capturedsa = saArgumentCaptor.getValue();
+        assertThat(capturedsa).isEqualTo(fournisseur);
+    }
+        @Test
+        public void retreiveAllSecteurActiviteTest () {
 
+            service.retrieveAllFournisseurs();
+            verify(rep).findAll();
 
-        ) ;
+        }
+
+        @Test
+        public void deleteOperateur() {
+
+        service.deleteFournisseur(1L);
+        verify(rep).deleteById(1L);
 
     }
-}
+
+        @Test
+        public void updateOperateur() {
+        Fournisseur sa = new Fournisseur();
+        sa.setCode("test");
+        Fournisseur sa1 = service.updateFournisseur(sa) ;
+
+        assertThat(sa1.getCode()).isEqualTo("test") ;
+
+    }
+
+    }
+
