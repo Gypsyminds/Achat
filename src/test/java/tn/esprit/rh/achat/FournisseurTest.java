@@ -35,7 +35,7 @@ public class FournisseurTest {
     public void testAjouterFournisseur() {
 
         //given
-        Fournisseur fournisseur = new Fournisseur();
+        Fournisseur fournisseur = new Fournisseur("test","test");
         //when
         service.addFournisseur(fournisseur);
 
@@ -62,7 +62,7 @@ public class FournisseurTest {
 
     }
 
-      
+
 
     }
 
