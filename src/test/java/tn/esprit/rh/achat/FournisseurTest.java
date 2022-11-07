@@ -46,21 +46,7 @@ public class FournisseurTest {
         Fournisseur capturedsa = saArgumentCaptor.getValue();
         assertThat(capturedsa).isEqualTo(fournisseur);
     }
-        @Test
-        public void retreiveAllSecteurActiviteTest () {
 
-            service.retrieveAllFournisseurs();
-            verify(rep).findAll();
-
-        }
-
-        @Test
-        public void deleteOperateur() {
-
-        service.deleteFournisseur(1L);
-        verify(rep).deleteById(1L);
-
-    }
 
 
 
