@@ -27,7 +27,7 @@ public class FournisseurTest {
 
     @Mock
     private  FournisseurRepository rep ;
-    @Mock
+    @InjectMocks
     private FournisseurServiceImpl service ;
 
 
