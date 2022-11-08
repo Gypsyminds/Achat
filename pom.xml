@@ -91,7 +91,16 @@
             <scope>test</scope>
         </dependency>
 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
 
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			
+		</dependency>
     </dependencies>
 
 	<build>
@@ -102,17 +111,7 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.1.0</version>
 			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<exclude>
-						<groupId> org.priectlombok</groupId>
-						<artifactId>lombok</artifactId>
-					</exclude>
-				</configuration>
 
-			</plugin>
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
@@ -121,9 +120,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<useSystemClassLoader>false</useSystemClassLoader>
-				</configuration>
+				<version>2.19.1</version>
 			</plugin>
 
 		</plugins>
