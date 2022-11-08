@@ -35,7 +35,7 @@ pipeline {
             }
         }
 
-    withSonarQubeEnv(credentialsId: 'sonartests',installationName: 'sq1') {
+    withSonarQubeEnv(credentialsId: 'test',installationName: 'sonarqube') {
                     sh """
                         mvn sonar:sonar \
                         -D sonar.login=admin \
