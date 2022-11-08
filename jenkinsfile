@@ -35,7 +35,15 @@ pipeline {
             }
         }
 
-    
+    withSonarQubeEnv(credentialsId: 'sonartest',installationName: 'sq1') {
+                    sh """
+                        mvn sonar:sonar \
+                        -D sonar.login=admin \
+                        -D sonar.password=sonar \
+                    """
+                }
+                    
+            }
     
                 
         }
