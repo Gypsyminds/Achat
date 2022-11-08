@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+
+
+    stages{
+        stage('Checkout Git'){
+            steps{
+                echo 'pulling';
+                git branch :'master',
+                url :'https://github.com/Gypsyminds/achat.git';
+             
+            }
+        }
+
+    stage ("Clean"){
+        steps{
+                sh "mvn clean"
+            }
+    }
+    stage('Compile'){
+            steps {
+                sh 'mvn compile -DskipTests'  
+            }
+        }
+    stage ("Package"){
+        steps{
+                sh "mvn package -DskipTests"
+            }
+        }
+
+    stage ("test"){
+        steps{
+                sh 'mvn test'
+            }
+        }
+
+    
+    
+                
+        }
+}
