@@ -34,15 +34,17 @@ pipeline {
                 sh "mvn test"
             }
         }
-
-    withSonarQubeEnv(credentialsId:'test-sonar',installationName: 'sonarqube') {
+  stage('SonarQube Analysis'){
+            steps {
+    withSonarQubeEnv(credentialsId:'test-sonar',installationName:'sonarqube') {
                     sh """
                         mvn sonar:sonar \
                         -D sonar.login=admin \
                         -D sonar.password=sonar \
                     """
                 }
-                    
+               }
+               }
             
     
                 
