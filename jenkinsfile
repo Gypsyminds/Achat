@@ -45,7 +45,7 @@ pipeline {
                 }
                }
                }
-          stage (''){
+          stage ('nexus'){
          steps{
             sh "mvn deploy:deploy-file -DgroupId=tn.esprit.rh \
 -DartifactId=achat -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar \
