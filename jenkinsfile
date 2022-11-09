@@ -36,7 +36,7 @@ pipeline {
         }
   stage('SonarQube Analysis'){
             steps {
-    withSonarQubeEnv(credentialsId:'test-sonar',installationName:'sonarqube') {
+    withSonarQubeEnv(credentialsId:'test1',installationName:'sonarqube') {
                     sh """
                         mvn sonar:sonar \
                         -D sonar.login=admin \
