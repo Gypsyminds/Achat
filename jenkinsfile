@@ -50,9 +50,9 @@ pipeline {
 			nexusArtifactUploader artifacts: [[artifactId: 'achat', 
             file: 'target/achat-1.0.jar', type: 'jar']],
             credentialsId: 'nexus', groupId: 'tn.esprit.rh', 
-            nexusUrl: '192.168.1.101:8081', 
+            nexusUrl: 'http://192.168.1.101:8081', 
             nexusVersion: 'nexus3', protocol: 'http', 
-            repository: 'maven-releases', version: '1.0'
+            repository: 'achat', version: '1.0'
 			}
 		}
     
